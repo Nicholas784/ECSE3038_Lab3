@@ -6,10 +6,11 @@ from flask_pymongo import PyMongo
 from marshmallow import Schema, fields, ValidationError
 from bson.json_util import dumps
 from json import loads
+from keys import keys
 
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb+srv://admin:passwordpassword@cluster0.jsdue.mongodb.net/ECSE3038_Lab3?retryWrites=true&w=majority" 
+app.config["MONGO_URI"] = "mongodb+srv://admin:"+keys["password"]+"@cluster0.jsdue.mongodb.net/ECSE3038_Lab3?retryWrites=true&w=majority" 
 
 mongo = PyMongo(app)
 
@@ -105,5 +106,5 @@ if __name__ == "__main__":
     app.run(
         debug=True,
         port = 3000,
-        host = "localhost"
+        host = "0.0.0.0"
     )
